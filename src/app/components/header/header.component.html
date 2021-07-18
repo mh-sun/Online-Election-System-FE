@@ -1,0 +1,14 @@
+<mat-toolbar color="primary">
+    <span>
+        Online Election System
+    </span>
+    <span class="spacer"></span>
+    <button mat-raised-button [matMenuTriggerFor]="LoginMenu" color='warn' *ngIf="checkRoute('/')">LOGIN</button>
+    <mat-menu #LoginMenu="matMenu" xPosition="before">
+        <button mat-menu-item [routerLink]="['/admin/login']">Admin</button>
+        <button mat-menu-item [routerLink]="['/voter/login']">Voter</button>
+    </mat-menu>
+
+    <button mat-raised-button color='warn' *ngIf="checkRoute('/user/admin') || checkRoute('/user/voter')" (click)="logout()" [routerLink]="['/']  ">LOGOUT</button>
+    <button mat-raised-button color='warn' *ngIf="checkRoute('/admin/login') || checkRoute('/voter/login')" [routerLink]="['/']">CANCEL</button>
+</mat-toolbar>
