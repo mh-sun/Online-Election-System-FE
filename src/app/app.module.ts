@@ -15,6 +15,12 @@ import {MatListModule} from '@angular/material/list';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatTableModule} from '@angular/material/table';
+import {MatSelectModule} from '@angular/material/select';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
 
 import { AppComponent } from './app.component';
 import { AdminComponent } from './components/admin/admin.component';
@@ -24,6 +30,15 @@ import { AdminLoginComponent } from './components/admin-login/admin-login.compon
 import { VoterLoginComponent } from './components/voter-login/voter-login.component';
 import { from } from 'rxjs';
 import { LoginService } from './services/login.service';
+import { AdminService } from './services/admin.service';
+import { AdminManagementComponent } from './components/admin-management/admin-management.component';
+import { VoterManagementComponent } from './components/voter-management/voter-management.component';
+import { ElectionManagementComponent } from './components/election-management/election-management.component';
+import { AdminItemsComponent } from './components/admin-items/admin-items.component';
+import { VoterItemComponent } from './components/voter-item/voter-item.component';
+import { ElectionItemComponent } from './components/election-item/election-item.component';
+import { CandidateManagementComponent } from './components/candidate-management/candidate-management.component';
+import { CandidateItemComponent } from './components/candidate-item/candidate-item.component';
 
 
 @NgModule({
@@ -34,6 +49,14 @@ import { LoginService } from './services/login.service';
     VoterComponent,
     AdminLoginComponent,
     VoterLoginComponent,
+    AdminManagementComponent,
+    VoterManagementComponent,
+    ElectionManagementComponent,
+    AdminItemsComponent,
+    VoterItemComponent,
+    ElectionItemComponent,
+    CandidateManagementComponent,
+    CandidateItemComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,9 +73,19 @@ import { LoginService } from './services/login.service';
     MatMenuModule,
     MatToolbarModule,
     MatIconModule,
+    MatSidenavModule,
+    MatTableModule,
+    MatSelectModule,
+    MatTooltipModule,
+    MatSnackBarModule,
     HttpClientModule
   ],
-  providers: [LoginService],
+  providers: [
+    LoginService,
+    AdminService
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  
+}

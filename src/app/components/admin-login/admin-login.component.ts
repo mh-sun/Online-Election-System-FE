@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Admin } from 'src/app/models/Admin';
 import { LoginService } from 'src/app/services/login.service';
@@ -12,7 +13,7 @@ export class AdminLoginComponent implements OnInit {
 
   admin:Admin = new Admin();
 
-  constructor(private service:LoginService,private router:Router) { }
+  constructor(private service:LoginService,private router:Router,private snack:MatSnackBar) { }
 
   ngOnInit(): void {
   }
@@ -20,14 +21,16 @@ export class AdminLoginComponent implements OnInit {
   submitData(){
     this.service.checkAdmin(this.admin).subscribe(
       (response: any)=>{
-        if(typeof(response) === 'number'){
+        if(response){
           localStorage.setItem('loggedIn', "admin");
-          localStorage.setItem('id',response.toString());
+          localStorage.setItem('name',this.admin.username);
+          
           this.router.navigate(["user/admin"]);
           this.admin = new Admin();
+          this.snack.open("Login Successful","Dismiss",{duration:2000});
         }
         else{
-          console.log("not succeed");
+          this.snack.open("Login Unsuccessful","Dismiss",{duration:2000});
         }
       }
     ) ;

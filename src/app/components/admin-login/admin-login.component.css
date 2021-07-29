@@ -1,5 +1,7 @@
+
 .main-div mat-card{
     padding: 0%;
+    margin-bottom: 8%;
 }
 .login-form {
     padding: 20px;
@@ -8,4 +10,4 @@ span {
     text-align: center;
     display: inline-block;
     width: 100%;
-  }
+}

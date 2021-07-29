@@ -1,0 +1,32 @@
+<div class="example-container" *ngIf="AddInfoShowUp">
+    <mat-card>
+        <mat-form-field appearance="fill">
+          <mat-label>Name</mat-label>
+          <input matInput [(ngModel)]="election.name" name="fullname" required>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill">
+          <mat-label>Date</mat-label>
+          <input matInput  [(ngModel)]="election.date" name="date" required>
+        </mat-form-field>
+        
+        <br><button mat-raised-button (click)="AddElection()" >Submit</button>
+    </mat-card>
+</div>
+
+<div>
+    <mat-card>
+        <mat-list>
+            <mat-list-item>
+                <div mat-line>
+                    <b>Elections</b>
+                </div>
+                <button mat-mini-fab style="background-color: steelblue;
+                color: white;" (click)="ChangeAddInfoShowUp()" matTooltip="Add Election">
+                    <mat-icon >add</mat-icon>
+                </button>
+            </mat-list-item>
+        </mat-list>
+    </mat-card>
+</div>
+<app-election-item *ngFor="let e of elections" [election]="e" (electionRefresh)="getAllElection()"></app-election-item>

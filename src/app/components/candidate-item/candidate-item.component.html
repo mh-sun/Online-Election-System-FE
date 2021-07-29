@@ -1,0 +1,44 @@
+<div >
+    <mat-card>
+      <mat-list>
+        <mat-list-item >
+          <mat-icon mat-list-icon>person</mat-icon>
+          <div mat-line>{{candidate.name}}</div>
+          <div mat-line> {{candidate.symbol}} </div>
+          <div mat-line *ngIf="checklogged()"> {{candidate.vote_count}} </div>
+          <button mat-icon-button *ngIf="checklogged()" (click)="ChangeCandidateEditPopUp()"
+          matTooltip="Edit this CANDIDATE">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button *ngIf="checklogged()" (click)="onDelete(candidate)"
+          matTooltip="Delete this CANDIDATE">
+            <mat-icon style="color: red;">delete</mat-icon>
+          </button>
+          <button mat-icon-button *ngIf="!checklogged()" (click)="onVote()"
+          matTooltip="Vote for this CANDIDATE">
+            <mat-icon>how_to_vote</mat-icon>
+          </button>
+        </mat-list-item>
+      </mat-list>
+    </mat-card>
+</div>
+
+<div class="example-container" *ngIf="CandidateEditPopUp && checklogged()">
+    <mat-card>
+        <mat-form-field appearance="fill">
+          <mat-label>Name</mat-label>
+          <input matInput [(ngModel)]="candidate.name" name="fullname" required>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill">
+          <mat-label>Symbol</mat-label>
+          <input matInput  [(ngModel)]="candidate.symbol" name="symbol" required>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill">
+            <mat-label>Vote Count</mat-label>
+            <input matInput  [(ngModel)]="candidate.vote_count" name="vote" disabled>
+        </mat-form-field>
+        <br><button mat-raised-button (click)="EditCandidate()" >Submit</button>
+    </mat-card>
+</div>

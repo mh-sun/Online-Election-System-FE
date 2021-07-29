@@ -1,5 +1,6 @@
 export class Admin{
-    public Id: number;
-    public Name: string;
-    public Password: string;
+    public id: number;
+    public fullname: string;
+    public username: string;
+    public password: string;
 }

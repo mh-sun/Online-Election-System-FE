@@ -1,1 +1,16 @@
-Voter works
+<div class="example-container">
+  <h1><b>Choose an Election</b></h1>
+  <mat-form-field appearance="fill">
+    <mat-label>Elections</mat-label>
+    <br><br>
+    <mat-select>
+      <mat-option *ngFor="let elec of elections" (click)="SelectedElection(elec)"
+                  > {{elec.name}}
+      </mat-option>
+      
+    </mat-select>
+  </mat-form-field>
+</div>
+<div *ngIf="candidates.length!=0">
+  <app-candidate-item  *ngFor="let e of candidates" [candidate]="e" ></app-candidate-item>
+</div>

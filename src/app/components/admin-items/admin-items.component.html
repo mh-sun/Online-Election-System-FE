@@ -1,0 +1,42 @@
+<div >
+    <mat-card>
+      <mat-list>
+        <mat-list-item >
+          <mat-icon mat-list-icon>person</mat-icon>
+          <div mat-line>{{admin.fullname}}</div>
+          <div mat-line> {{admin.username}} </div>
+          <button mat-icon-button (click)="ChangeAdminEditPopUp()"
+          matTooltip="Edit this Admin">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button (click)="onDelete(admin)"
+          matTooltip="Delete this Admin">
+            <mat-icon style="color: red;">delete</mat-icon>
+          </button>
+        </mat-list-item>
+      </mat-list>
+    </mat-card>
+</div>
+
+<div class="example-container" *ngIf="AdminEditPopUp">
+    <mat-card>
+        <mat-form-field appearance="fill">
+          <mat-label>Fullname</mat-label>
+          <input matInput [(ngModel)]="admin.fullname" name="fullname" required>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill">
+          <mat-label>Username</mat-label>
+          <input matInput  [(ngModel)]="admin.username" name="username" required>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill">
+          <mat-label>Enter your password</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="admin.password" name="password" required>
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+        <br><button mat-raised-button (click)="EditAdmin()" >Submit</button>
+    </mat-card>
+</div>

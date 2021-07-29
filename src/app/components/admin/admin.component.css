@@ -1,0 +1,25 @@
+mat-sidenav-container {
+    height: 90%;
+}
+mat-sidenav {
+    padding: 10px;
+    background-color:white;
+    width: 16em;
+    color:black;
+    opacity: .8;
+    min-width: 200px;  
+    align-content: center; 
+}
+mat-label {
+    width: 100%;
+}
+mat-card{
+    height:100%;
+}
+.example-container .mat-form-field + .mat-form-field {
+    margin-left: 10px;
+}
+.example-container{
+    text-align: center;
+}
+

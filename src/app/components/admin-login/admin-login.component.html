@@ -7,13 +7,13 @@
         </p>
         <form fxLayoutAlign="center" fxLayout="column" class="login-form">
             <mat-form-field appearance="fill">
-              <mat-label>Admin Name</mat-label>
-              <input matInput placeholder="Ex. Admin" [(ngModel)]="admin.Name" name="username">
+              <mat-label>Username</mat-label>
+              <input matInput placeholder="Ex. Admin" [(ngModel)]="admin.username" name="username">
             </mat-form-field>
           
             <mat-form-field appearance="fill">
                 <mat-label>Password</mat-label>
-                <input matInput type="password" [(ngModel)]="admin.Password" name="password">
+                <input matInput type="password" [(ngModel)]="admin.password" name="password">
             </mat-form-field>
             <button mat-raised-button color="primary" (click)="submitData()">Submit</button>
           </form>

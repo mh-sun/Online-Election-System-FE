@@ -32,7 +32,10 @@ export class HeaderComponent implements OnInit {
 
   logout(){
     localStorage.removeItem('loggedIn');
-    localStorage.removeItem('id');
+    localStorage.removeItem('name');
+    localStorage.removeItem('vid');
+    
+    
     window.location.reload()
   }
 

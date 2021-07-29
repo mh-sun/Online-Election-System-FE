@@ -1,0 +1,39 @@
+<div class="example-container" *ngIf="AddInfoShowUp">
+    <mat-card>
+        <mat-form-field appearance="fill">
+          <mat-label>Fullname</mat-label>
+          <input matInput [(ngModel)]="admin.fullname" name="fullname" required>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill">
+          <mat-label>Username</mat-label>
+          <input matInput  [(ngModel)]="admin.username" name="username" required>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill">
+          <mat-label>Enter your password</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="admin.password" name="password" required>
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+        <br><button mat-raised-button (click)="addAdmin()" >Submit</button>
+    </mat-card>
+</div>
+
+<div>
+    <mat-card>
+        <mat-list>
+            <mat-list-item>
+                <div mat-line>
+                    <b>Admins</b>
+                </div>
+                <button mat-mini-fab style="background-color: steelblue;
+                color: white;" (click)="ChangeAddInfoShowUp()" matTooltip="Add Admin">
+                    <mat-icon >add</mat-icon>
+                </button>
+            </mat-list-item>
+        </mat-list>
+    </mat-card>
+</div>
+<app-admin-items *ngFor="let e of admins" [admin]="e" (adminRefresh)="getAllAdmin()"></app-admin-items>

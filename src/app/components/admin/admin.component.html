@@ -1,1 +1,24 @@
-Admin Works
+<mat-sidenav-container>
+  <mat-sidenav mode="push" #sideNav>
+    <div>
+      <button mat-button (click)="switchMan('AdminMan')" style="width : 15em;">Admin Management</button>
+  
+      <button mat-button (click)="switchMan('VoterMan')" style="width : 15em;">Voter Management</button>
+
+      <button mat-button (click)="switchMan('ElectMan')" style="width : 15em;">Election Management</button>
+
+    </div>
+  </mat-sidenav>
+  
+  <mat-sidenav-content>
+    <mat-toolbar>
+      <button mat-icon-button (click)="sideNav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </mat-toolbar>
+    <app-admin-management *ngIf="AdminMan"></app-admin-management>
+    <app-voter-management *ngIf="VoterMan"></app-voter-management>
+    <app-election-management *ngIf="ElectMan"></app-election-management>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,50 @@
+<div >
+    <mat-card>
+      <mat-list>
+        <mat-list-item >
+          <mat-icon mat-list-icon>how_to_vote</mat-icon>
+          <div mat-line>{{election.name}}</div>
+          <div mat-line> {{election.date}} </div>
+          <div mat-line *ngIf="election.winner!=''">......{{election.winner}} Won The Election .....</div>
+          
+          <button mat-icon-button matTooltip="Candidates of this ELECTION" (click)="ChangerCandidatePopUp()">
+            <mat-icon>manage_accounts</mat-icon>
+          </button>
+          <button mat-icon-button matTooltip="Publish this ELECTION" (click)="ChangePStatus()">
+            <mat-icon>publish</mat-icon>
+          </button>
+          <button mat-icon-button matTooltip="Freeze this ELECTION" (click)="ChangeFStatus()">
+            <mat-icon >stop_circle</mat-icon>
+          </button>
+          <button mat-icon-button matTooltip="Edit this ELECTION" (click)="ChangeElectionEditPopUp()">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button matTooltip="Delete this ELECTION" (click)="onDelete(election)">
+            <mat-icon style="color: red;">delete</mat-icon>
+          </button>
+        </mat-list-item>
+      </mat-list>
+    </mat-card>
+</div>
+
+<div class="example-container" *ngIf="ElectionEditPopUp">
+    <mat-card>
+        <mat-form-field appearance="fill">
+          <mat-label>Name</mat-label>
+          <input matInput [(ngModel)]="election.name" name="name" required>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill">
+          <mat-label>Date</mat-label>
+          <input matInput  [(ngModel)]="election.date" name="date" required>
+        </mat-form-field>
+        
+        <br><button mat-raised-button (click)="EditElection()" >Submit</button>
+    </mat-card>
+</div>
+
+<div *ngIf="CandidatePopUp">
+    <hr>
+    <app-candidate-management [EId]="election.id" [EName]="election.name"></app-candidate-management>
+    <hr>
+</div>
