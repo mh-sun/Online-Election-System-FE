@@ -10,8 +10,8 @@
     </div>
   </mat-sidenav>
   
-  <mat-sidenav-content>
-    <mat-toolbar>
+  <mat-sidenav-content >
+    <mat-toolbar >
       <button mat-icon-button (click)="sideNav.toggle()">
         <mat-icon>menu</mat-icon>
       </button>
@@ -19,6 +19,19 @@
     <app-admin-management *ngIf="AdminMan"></app-admin-management>
     <app-voter-management *ngIf="VoterMan"></app-voter-management>
     <app-election-management *ngIf="ElectMan"></app-election-management>
+    <div *ngIf="!AdminMan && !VoterMan && !ElectMan" class="content">
+      <span>A</span>
+      <span>D</span>
+      <span>M</span>
+      <span>I</span>
+      <span>N</span>
+      <span>_</span>
+      <span>P</span>
+      <span>A</span>
+      <span>N</span>
+      <span>E</span>
+      <span>L</span>
+    </div>
 
   </mat-sidenav-content>
 </mat-sidenav-container>

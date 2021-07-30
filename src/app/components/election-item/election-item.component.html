@@ -3,9 +3,11 @@
       <mat-list>
         <mat-list-item >
           <mat-icon mat-list-icon>how_to_vote</mat-icon>
-          <div mat-line>{{election.name}}</div>
-          <div mat-line> {{election.date}} </div>
-          <div mat-line *ngIf="election.winner!=''">......{{election.winner}} Won The Election .....</div>
+          <div mat-line>Name :{{election.name}}</div>
+          <div mat-line>Election date :{{election.date}} </div>
+          <div mat-line *ngIf="election.winner!=''">
+            <mat-card style="text-align: center;"><b> ......{{election.winner}} Won The Election ..... </b></mat-card>
+          </div>
           
           <button mat-icon-button matTooltip="Candidates of this ELECTION" (click)="ChangerCandidatePopUp()">
             <mat-icon>manage_accounts</mat-icon>

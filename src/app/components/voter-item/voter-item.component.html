@@ -3,10 +3,10 @@
       <mat-list>
         <mat-list-item >
           <mat-icon mat-list-icon>person</mat-icon>
-          <div mat-line>{{voter.name}}</div>
-          <div mat-line> {{voter.email}} </div>
-          <div mat-line>{{voter.location}}</div>
-          <div mat-line> {{voter.date_of_birth}} </div>
+          <div mat-line>Name :{{voter.name}}</div>
+          <div mat-line>Email :{{voter.email}} </div>
+          <div mat-line>Location :{{voter.location}}</div>
+          <div mat-line>Birthdate :{{voter.date_of_birth}} </div>
           <button mat-icon-button (click)="ChangeVoterEditPopUp()" matTooltip="Edit this VOTER">
             <mat-icon>edit</mat-icon>
           </button>

@@ -20,6 +20,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatSelectModule} from '@angular/material/select';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 import { AppComponent } from './app.component';
@@ -39,6 +40,7 @@ import { VoterItemComponent } from './components/voter-item/voter-item.component
 import { ElectionItemComponent } from './components/election-item/election-item.component';
 import { CandidateManagementComponent } from './components/candidate-management/candidate-management.component';
 import { CandidateItemComponent } from './components/candidate-item/candidate-item.component';
+import { WelcomePageComponent } from './components/welcome-page/welcome-page.component';
 
 
 @NgModule({
@@ -57,6 +59,7 @@ import { CandidateItemComponent } from './components/candidate-item/candidate-it
     ElectionItemComponent,
     CandidateManagementComponent,
     CandidateItemComponent,
+    WelcomePageComponent,
   ],
   imports: [
     BrowserModule,
@@ -78,6 +81,7 @@ import { CandidateItemComponent } from './components/candidate-item/candidate-it
     MatSelectModule,
     MatTooltipModule,
     MatSnackBarModule,
+    MatDialogModule,
     HttpClientModule
   ],
   providers: [

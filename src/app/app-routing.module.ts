@@ -4,8 +4,10 @@ import { AdminLoginComponent } from './components/admin-login/admin-login.compon
 import { AdminComponent } from './components/admin/admin.component';
 import { VoterLoginComponent } from './components/voter-login/voter-login.component';
 import { VoterComponent } from './components/voter/voter.component';
+import { WelcomePageComponent } from './components/welcome-page/welcome-page.component';
 
 const routes: Routes = [
+  {path:'',component:WelcomePageComponent},
   {path:'admin/login',component:AdminLoginComponent},
   {path:'voter/login',component:VoterLoginComponent},
   {path:'user/admin',component:AdminComponent},

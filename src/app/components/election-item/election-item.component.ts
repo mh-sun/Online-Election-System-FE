@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Election } from 'src/app/models/Election';
 import { CandidateService } from 'src/app/services/candidate.service';
@@ -12,7 +13,9 @@ import { ElectionService } from 'src/app/services/election.service';
 export class ElectionItemComponent implements OnInit {
 
 
-  constructor(private electionService:ElectionService,private candidateService:CandidateService,private snack:MatSnackBar) { }
+  constructor(private electionService:ElectionService,
+    private candidateService:CandidateService,private snack:MatSnackBar,
+    private dialog:MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -80,7 +83,7 @@ export class ElectionItemComponent implements OnInit {
       response =>{
         if(response!=null){
           this.election = response;
-          this.snack.open("Election is Published","Dismiss",{duration:2000});
+          this.snack.open(this.election.winner+" Won The Election.","Dismiss",{duration:3000});
         }else this.snack.open("Error with Publishing","Dismiss",{duration:2000});
       }
     );

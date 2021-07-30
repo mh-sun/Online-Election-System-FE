@@ -3,9 +3,9 @@
       <mat-list>
         <mat-list-item >
           <mat-icon mat-list-icon>person</mat-icon>
-          <div mat-line>{{candidate.name}}</div>
-          <div mat-line> {{candidate.symbol}} </div>
-          <div mat-line *ngIf="checklogged()"> {{candidate.vote_count}} </div>
+          <div mat-line>Candidate Name :{{candidate.name}}</div>
+          <div mat-line>Symbol :{{candidate.symbol}} </div>
+          <div mat-line *ngIf="checklogged()">Votes :{{candidate.vote_count}} </div>
           <button mat-icon-button *ngIf="checklogged()" (click)="ChangeCandidateEditPopUp()"
           matTooltip="Edit this CANDIDATE">
             <mat-icon>edit</mat-icon>
